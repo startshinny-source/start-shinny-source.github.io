@@ -205,6 +205,23 @@
             align-items: center;
             justify-content: center;
         }
+
+        /* Needle icon styling for the acupuncture card */
+        .service-icon .needle-icon {
+            width: 30px;
+            height: 72px;
+            color: var(--primary-color);
+            display: block;
+            margin: 0 auto;
+            transform: rotate(-18deg);
+        }
+
+        @media (max-width: 576px) {
+            .service-icon .needle-icon {
+                height: 56px;
+                transform: rotate(-14deg);
+            }
+        }
         
         .service-content {
             padding: 30px;
@@ -470,10 +487,24 @@
             
             nav ul.active {
                 display: flex;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                padding-top: 80px;
+                box-shadow: none;
+                overflow: auto;
+                z-index: 200;
             }
             
             nav ul li {
                 margin: 10px 0;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 16px 20px;
+                font-size: 18px;
             }
             
             .mobile-menu-btn {
@@ -486,6 +517,14 @@
             
             .section {
                 padding: 70px 0;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
             }
             
             .section-title h2 {
@@ -505,9 +544,147 @@
             .service-content, .contact-form, .practitioner-info {
                 padding: 20px;
             }
+
+            .section-title h2 {
+                font-size: 24px;
+            }
             
             .practitioner-img {
                 min-height: 300px;
+            }
+        }
+
+        /* Footer: stack columns on small screens */
+        @media (max-width: 576px) {
+            .footer-column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Visible focus styles for keyboard users */
+        a:focus, .btn:focus, button:focus {
+            outline: 3px solid rgba(42,110,63,0.15);
+            outline-offset: 3px;
+        }
+
+        /* Responsive enhancements */
+        /* Increase tap targets and spacing for mobile */
+        .mobile-menu-btn {
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        nav ul li a {
+            padding: 8px 12px;
+            display: inline-block;
+        }
+
+        /* Make buttons and inputs more touch-friendly on small screens */
+        .btn {
+            min-height: 44px;
+            padding: 14px 20px;
+        }
+
+        .form-control {
+            font-size: 16px;
+        }
+
+        /* Services grid: single column on small devices for readability */
+        @media (max-width: 576px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                display: flex;
+                align-items: center;
+                gap: 18px;
+                padding: 18px;
+            }
+
+            .service-icon {
+                width: 72px;
+                height: 72px;
+                flex: 0 0 72px;
+                border-radius: 12px;
+            }
+
+            .service-content h3 {
+                font-size: 18px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 14px;
+            }
+
+            .container {
+                padding: 0 12px;
+            }
+
+            /* Make contact form full width and inputs larger */
+            .contact-info, .contact-form {
+                width: 100%;
+            }
+
+            textarea.form-control {
+                min-height: 140px;
+            }
+            /* Make form controls and submit button easier to use on small screens */
+            .contact-form .form-group {
+                margin-bottom: 16px;
+            }
+
+            .contact-form .form-control {
+                padding: 14px 12px;
+                font-size: 16px;
+            }
+
+            .contact-form .btn {
+                width: 100%;
+                font-size: 16px;
+                padding: 14px;
+                margin-top: 8px;
+            }
+
+            .form-note {
+                font-size: 13px;
+            }
+        }
+
+        /* Mid-size tablet adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h2 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .mobile-menu-btn {
+                font-size: 28px;
+            }
+        }
+
+        /* Very small / narrow phones */
+        @media (max-width: 420px) {
+            .hero h2 {
+                font-size: 26px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .service-icon .needle-icon {
+                transform: rotate(-8deg);
+                height: 48px;
             }
         }
     </style>
@@ -561,7 +738,18 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-acorn"></i>
+                        <!-- Thin acupuncture needle icon -->
+                        <svg class="needle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 64" aria-hidden="true" focusable="false">
+                            <title>Acupuncture needle</title>
+                            <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <!-- needle shaft -->
+                                <line x1="12" y1="60" x2="12" y2="10" />
+                                <!-- tapered point -->
+                                <path d="M12 10 L14 6 L12 8 L10 6 Z" />
+                                <!-- wrapped handle -->
+                                <path d="M7 4c1.5-1 4.5-1 6 0" stroke-width="1.2" />
+                            </g>
+                        </svg>
                     </div>
                     <div class="service-content">
                         <h3>Acupuncture</h3>
@@ -734,7 +922,7 @@
                 <div class="contact-form">
                     <h3>Book an Appointment</h3>
                     <!-- REPLACE your-email@example.com WITH YOUR ACTUAL EMAIL -->
-                    <form id="appointmentForm" action="mailto:your-email@example.com" method="post" enctype="text/plain">
+                    <form id="appointmentForm" action="startshinny@gmail.com" method="post" enctype="text/plain">
                         <!-- Email Subject -->
                         <input type="hidden" name="subject" value="Natucure Appointment Request">
                         
@@ -840,16 +1028,46 @@
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainNav = document.getElementById('mainNav');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            mainNav.classList.toggle('active');
+        // Accessibility attributes
+        mobileMenuBtn.setAttribute('aria-controls', 'mainNav');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileMenuBtn.setAttribute('aria-label', 'Toggle navigation');
+
+        function openMenu() {
+            mainNav.classList.add('active');
             const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeMenu() {
+            mainNav.classList.remove('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            mobileMenuBtn.focus();
+        }
+
+        mobileMenuBtn.addEventListener('click', function(e) {
             if (mainNav.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
+                closeMenu();
             } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+                openMenu();
+            }
+        });
+
+        // Close menu when clicking outside or pressing Escape
+        document.addEventListener('click', function(e) {
+            if (mainNav.classList.contains('active') && !mainNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mainNav.classList.contains('active')) {
+                closeMenu();
             }
         });
         
@@ -888,21 +1106,48 @@
         // Update copyright year
         document.querySelector('.copyright p').innerHTML = `&copy; ${new Date().getFullYear()} Natucure Acupuncture & Herbal Medicine Clinic. All rights reserved.`;
         
-        // Add email validation for the mailto form
+        // Build and open a mailto: link with the form data so the user's email client opens for review
         document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-            // Simple validation
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            
+            e.preventDefault();
+
+            // Collect and validate required fields
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const service = document.getElementById('service').value.trim();
+
             if (!name || !phone || !service) {
-                e.preventDefault();
                 alert('Please fill in all required fields (marked with *)');
                 return false;
             }
-            
-            // Show confirmation message
-            alert('Your appointment request is ready to be sent. An email window will open for you to review and send the message.');
+
+            // Optional fields
+            const preferredDate = document.getElementById('preferred-date').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Subject from hidden input (fallback to default)
+            const subjectInput = document.querySelector('input[name="subject"]');
+            const subject = subjectInput ? subjectInput.value : 'Natucure Appointment Request';
+
+            // Build the email body with line breaks
+            const lines = [
+                `Full Name: ${name}`,
+                `Phone: ${phone}`,
+                `Service Interested In: ${service}`,
+                `Preferred Date: ${preferredDate || 'N/A'}`,
+                `Health Concerns / Notes: ${message || 'N/A'}`
+            ];
+            const body = lines.join('\r\n'); // CRLF for email bodies
+
+            // Build mailto URL (mailto:to?subject=...&body=...)
+            const to = 'startshinny@gmail.com'; // destination email
+            const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // Ask user before opening mail client (optional) and then open the mail client
+            const confirmOpen = confirm('An email window will open in your default mail client so you can review and send the appointment request. Proceed?');
+            if (!confirmOpen) return false;
+
+            // Use window.location.href which works reliably to open the user's mail client
+            window.location.href = mailto;
         });
     </script>
 </body>
