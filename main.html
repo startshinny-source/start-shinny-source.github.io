@@ -244,41 +244,52 @@
         }
         
         /* Practitioners Section */
-        .practitioners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        .practitioner-card {
-            text-align: center;
+        .practitioner-single {
+            display: flex;
+            align-items: center;
             background-color: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         .practitioner-img {
-            height: 250px;
+            flex: 1;
+            min-height: 400px;
             background-color: var(--secondary-color);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary-color);
-            font-size: 80px;
+            font-size: 100px;
         }
         
         .practitioner-info {
-            padding: 25px;
+            flex: 1;
+            padding: 40px;
         }
         
         .practitioner-info h3 {
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 28px;
         }
         
-        .practitioner-info p {
-            color: var(--text-light);
-            font-style: italic;
+        .practitioner-info .title {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .practitioner-info ul {
+            margin-top: 20px;
+            padding-left: 20px;
+        }
+        
+        .practitioner-info li {
+            margin-bottom: 10px;
         }
         
         /* Contact Section */
@@ -354,6 +365,13 @@
             resize: vertical;
         }
         
+        .form-note {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
         /* Footer */
         footer {
             background-color: var(--dark-color);
@@ -423,6 +441,11 @@
                 flex-direction: column;
             }
             
+            .practitioner-single {
+                flex-direction: column;
+                max-width: 500px;
+            }
+            
             .hero h2 {
                 font-size: 36px;
             }
@@ -479,8 +502,12 @@
                 font-size: 16px;
             }
             
-            .service-content, .contact-form {
+            .service-content, .contact-form, .practitioner-info {
                 padding: 20px;
+            }
+            
+            .practitioner-img {
+                min-height: 300px;
             }
         }
     </style>
@@ -508,7 +535,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#practitioners">Our Practitioners</a></li>
+                    <li><a href="#practitioner">Our Practitioner</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -564,11 +591,11 @@
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-spa"></i>
+                        <i class="fas fa-bone"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Moxibustion</h3>
-                        <p>Warmth therapy using mugwort to stimulate acupuncture points and promote healing.</p>
+                        <h3>Musculoskeletal & Joint Pain Relief</h3>
+                        <p>Specialized treatments for chronic pain, arthritis, joint stiffness, and musculoskeletal disorders using integrative techniques.</p>
                     </div>
                 </div>
                 
@@ -605,7 +632,7 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>Holistic Healing Since 2010</h3>
-                    <p>Natucure Acupuncture & Herbal Medicine Clinic was founded with a vision to bring authentic Traditional Chinese Medicine to our community. Our practitioners have over 30 years of combined experience in acupuncture, herbal medicine, and holistic healing.</p>
+                    <p>Natucure Acupuncture & Herbal Medicine Clinic was founded with a vision to bring authentic Traditional Chinese Medicine to our community. Our practitioner has over 15 years of experience in acupuncture, herbal medicine, and holistic healing.</p>
                     <p>We believe in treating the root cause of illness, not just the symptoms. Our integrated approach combines ancient wisdom with modern understanding to help you achieve optimal health and wellness.</p>
                     <p>At Natucure, we create personalized treatment plans for each patient, considering your unique constitution, lifestyle, and health goals. We're committed to providing compassionate care in a peaceful, healing environment.</p>
                     <a href="#contact" class="btn" style="margin-top: 20px;">Visit Our Clinic</a>
@@ -618,45 +645,32 @@
         </div>
     </section>
 
-    <!-- Practitioners Section -->
-    <section class="section" id="practitioners">
+    <!-- Practitioner Section -->
+    <section class="section" id="practitioner">
         <div class="container">
             <div class="section-title">
-                <h2>Meet Our Practitioners</h2>
+                <h2>Meet Our Practitioner</h2>
             </div>
             
-            <div class="practitioners-grid">
-                <div class="practitioner-card">
-                    <div class="practitioner-img">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <div class="practitioner-info">
-                        <h3>Dr. Li Wei Zhang</h3>
-                        <p>Licensed Acupuncturist & Herbalist</p>
-                        <p>With over 20 years of experience, Dr. Zhang specializes in pain management, digestive disorders, and stress-related conditions.</p>
-                    </div>
+            <div class="practitioner-single">
+                <div class="practitioner-img">
+                    <i class="fas fa-user-md"></i>
                 </div>
-                
-                <div class="practitioner-card">
-                    <div class="practitioner-img">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <div class="practitioner-info">
-                        <h3>Maya Chen, L.Ac.</h3>
-                        <p>Master of Traditional Chinese Medicine</p>
-                        <p>Maya focuses on women's health, fertility support, and emotional wellness using acupuncture and custom herbal formulas.</p>
-                    </div>
-                </div>
-                
-                <div class="practitioner-card">
-                    <div class="practitioner-img">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <div class="practitioner-info">
-                        <h3>David Park, L.Ac.</h3>
-                        <p>Acupuncture & Sports Medicine Specialist</p>
-                        <p>David combines orthopedic acupuncture with movement therapy to treat sports injuries and improve athletic performance.</p>
-                    </div>
+                <div class="practitioner-info">
+                    <h3>Dong Li, L.Ac., Dipl. O.M.</h3>
+                    <span class="title">Licensed Acupuncturist & Herbal Medicine Specialist</span>
+                    <p>With over 15 years of clinical experience, Dong Li is a highly skilled practitioner dedicated to providing exceptional care through Traditional Chinese Medicine. She holds a Master's degree in Traditional Chinese Medicine and is board-certified in Oriental Medicine.</p>
+                    
+                    <p>Dong specializes in:</p>
+                    <ul>
+                        <li>Chronic pain management and musculoskeletal disorders</li>
+                        <li>Stress reduction and emotional wellness</li>
+                        <li>Digestive health and autoimmune conditions</li>
+                        <li>Women's health and hormonal balance</li>
+                        <li>Preventive wellness and longevity</li>
+                    </ul>
+                    
+                    <p>Her approach combines meticulous diagnosis with compassionate care, ensuring each treatment is tailored to your unique needs. Dong believes in empowering patients through education and collaborative healing.</p>
                 </div>
             </div>
         </div>
@@ -697,16 +711,6 @@
                         
                         <div class="contact-item">
                             <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h4>Email</h4>
-                                <p>info@natucureclinic.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
                                 <i class="fas fa-clock"></i>
                             </div>
                             <div>
@@ -714,42 +718,59 @@
                                 <p>Mon-Fri: 9am-6pm<br>Sat: 9am-2pm<br>Sun: Closed</p>
                             </div>
                         </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div>
+                                <h4>Appointments</h4>
+                                <p>Call during business hours to schedule your consultation. We accept most major insurance plans.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="contact-form">
                     <h3>Book an Appointment</h3>
-                    <form id="appointmentForm">
+                    <!-- REPLACE your-email@example.com WITH YOUR ACTUAL EMAIL -->
+                    <form id="appointmentForm" action="mailto:your-email@example.com" method="post" enctype="text/plain">
+                        <!-- Email Subject -->
+                        <input type="hidden" name="subject" value="Natucure Appointment Request">
+                        
                         <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" required>
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" required>
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service" class="form-control" required>
+                            <label for="service">Service Interested In *</label>
+                            <select id="service" name="service" class="form-control" required>
                                 <option value="">Select a service</option>
-                                <option value="acupuncture">Acupuncture</option>
-                                <option value="herbal">Herbal Medicine</option>
-                                <option value="cupping">Cupping Therapy</option>
-                                <option value="consultation">Initial Consultation</option>
+                                <option value="Acupuncture">Acupuncture</option>
+                                <option value="Herbal Medicine">Herbal Medicine</option>
+                                <option value="Cupping Therapy">Cupping Therapy</option>
+                                <option value="Pain Relief">Musculoskeletal & Joint Pain Relief</option>
+                                <option value="Initial Consultation">Initial Consultation</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="message">Message (Optional)</label>
-                            <textarea id="message" class="form-control" placeholder="Tell us about your health concerns or specific requests..."></textarea>
+                            <label for="preferred-date">Preferred Date</label>
+                            <input type="date" id="preferred-date" name="preferred-date" class="form-control">
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Health Concerns or Specific Requests</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Tell us about your health concerns or specific requests..."></textarea>
+                        </div>
+                        
+                        <p class="form-note">Note: Submitting this form will open your email client to send us your information.</p>
                         
                         <button type="submit" class="btn">Submit Appointment Request</button>
                     </form>
@@ -781,7 +802,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#services">Our Services</a></li>
-                        <li><a href="#practitioners">Our Practitioners</a></li>
+                        <li><a href="#practitioner">Our Practitioner</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -792,7 +813,7 @@
                         <li><a href="#services">Acupuncture</a></li>
                         <li><a href="#services">Herbal Medicine</a></li>
                         <li><a href="#services">Cupping Therapy</a></li>
-                        <li><a href="#services">Moxibustion</a></li>
+                        <li><a href="#services">Pain Relief</a></li>
                         <li><a href="#services">Nutritional Counseling</a></li>
                     </ul>
                 </div>
@@ -802,14 +823,10 @@
                     <div class="social-links">
                         <a href="#" style="color: white; margin-right: 15px; font-size: 20px;"><i class="fab fa-facebook"></i></a>
                         <a href="#" style="color: white; margin-right: 15px; font-size: 20px;"><i class="fab fa-instagram"></i></a>
-                        <a href="#" style="color: white; margin-right: 15px; font-size: 20px;"><i class="fab fa-twitter"></i></a>
-                        <a href="#" style="color: white; font-size: 20px;"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: white; font-size: 20px;"><i class="fab fa-yelp"></i></a>
                     </div>
-                    <p style="margin-top: 20px;">Subscribe to our newsletter for health tips and updates.</p>
-                    <div style="margin-top: 15px;">
-                        <input type="email" placeholder="Your email" style="padding: 10px; border-radius: 5px; border: none; width: 70%;">
-                        <button class="btn" style="padding: 10px 15px; margin-left: 5px;">Subscribe</button>
-                    </div>
+                    <p style="margin-top: 20px; font-size: 14px;">For appointments, please call us directly at (555) 123-4567 during business hours.</p>
+                    <p style="margin-top: 10px; font-size: 14px;">We look forward to supporting your health journey.</p>
                 </div>
             </div>
             
@@ -864,24 +881,29 @@
             });
         });
         
-        // Form submission
-        const appointmentForm = document.getElementById('appointmentForm');
-        appointmentForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const service = document.getElementById('service').value;
-            
-            // Show success message (in a real site, this would be sent to a server)
-            alert(`Thank you, ${name}! Your appointment request for ${service} has been received. We will contact you within 24 hours to confirm your appointment.`);
-            
-            // Reset form
-            appointmentForm.reset();
-        });
+        // Set minimum date for appointment to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('preferred-date').setAttribute('min', today);
         
         // Update copyright year
         document.querySelector('.copyright p').innerHTML = `&copy; ${new Date().getFullYear()} Natucure Acupuncture & Herbal Medicine Clinic. All rights reserved.`;
+        
+        // Add email validation for the mailto form
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            // Simple validation
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            
+            if (!name || !phone || !service) {
+                e.preventDefault();
+                alert('Please fill in all required fields (marked with *)');
+                return false;
+            }
+            
+            // Show confirmation message
+            alert('Your appointment request is ready to be sent. An email window will open for you to review and send the message.');
+        });
     </script>
 </body>
 </html>
